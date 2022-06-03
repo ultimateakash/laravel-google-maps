@@ -66,11 +66,11 @@
                             map
                         });
                         activeInfoWindow = infowindow;
-                        markerClicked(markerData, index);
+                        markerClicked(marker, index);
                     });
 
                     marker.addListener("dragend", (event) => {
-                        markerDragEnd(markerData, index);
+                        markerDragEnd(event, index);
                     });
                 }
             }
@@ -84,13 +84,15 @@
             /* ------------------------ Handle Marker Click Event ----------------------- */
             function markerClicked(marker, index) {
                 console.log(map);
-                console.log(marker, index);
+                console.log(marker.position.lat());
+                console.log(marker.position.lng());
             }
 
             /* ----------------------- Handle Marker DragEnd Event ---------------------- */
-            function markerDragEnd(marker, index) {
+            function markerDragEnd(event, index) {
                 console.log(map);
-                console.log(marker, index);
+                console.log(event.latLng.lat());
+                console.log(event.latLng.lng());
             }
         </script>
     </body>
